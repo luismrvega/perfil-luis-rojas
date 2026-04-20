@@ -1,124 +1,1028 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Miguel Rojas Vega | Perfil Profesional</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Luis Miguel Rojas Vega – Ingeniero Economista especialista en Estrategia de Datos y Finanzas Corporativas con más de 14 años en el sector financiero peruano."/>
+<title>Luis Miguel Rojas Vega | Economista & Estratega de Datos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold:    #c9a84c;
+    --gold-lt: #e8c97a;
+    --gold-dk: #8c6d27;
+    --bg:      #0a0c10;
+    --bg2:     #111318;
+    --bg3:     #181c24;
+    --surface: #1e2330;
+    --border:  rgba(201,168,76,.18);
+    --text:    #e8e6df;
+    --muted:   #8a8880;
+    --accent:  #4a9eff;
+    --danger:  #e05c5c;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', sans-serif;
+    --font-mono:    'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; opacity: .5;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(10,12,16,.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: .85rem;
+    color: var(--gold);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted); font-size: .85rem; text-decoration: none;
+    letter-spacing: .05em; text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #inicio {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 5rem 4rem;
+    position: relative;
+    gap: 3rem;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0; z-index: -1;
+    background-image:
+      linear-gradient(rgba(201,168,76,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .hero-glow {
+    position: absolute; top: 20%; right: 10%;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(201,168,76,.1); border: 1px solid var(--border);
+    color: var(--gold-lt); font-family: var(--font-mono);
+    font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    padding: .35rem .8rem; border-radius: 2px; margin-bottom: 1.5rem;
+  }
+  .hero-badge::before { content: '●'; color: var(--gold); animation: blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    margin-bottom: 1rem;
+  }
+  .hero-name span {
+    background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-tagline {
+    font-size: 1.05rem; color: var(--muted); max-width: 480px; margin-bottom: 2.5rem;
+  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .75rem 1.75rem; border-radius: 2px;
+    font-size: .85rem; font-weight: 500; letter-spacing: .05em;
+    text-transform: uppercase; text-decoration: none;
+    transition: all .25s; cursor: pointer; border: none;
+  }
+  .btn-gold {
+    background: var(--gold); color: #0a0c10;
+  }
+  .btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,168,76,.3); }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* Hero right – stat cards */
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .stat-card {
+    background: var(--bg2);
+    padding: 2rem 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .stat-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: linear-gradient(90deg, var(--gold-dk), var(--gold));
+    transform: scaleX(0); transition: transform .4s;
+    transform-origin: left;
+  }
+  .stat-card:hover::after { transform: scaleX(1); }
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--gold); line-height: 1;
+    margin-bottom: .4rem;
+  }
+  .stat-label { font-size: .78rem; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+  .stat-sub { font-size: .75rem; color: var(--muted); margin-top: .4rem; line-height: 1.4; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5rem; position: relative; }
+  .section-tag {
+    font-family: var(--font-mono); font-size: .72rem;
+    color: var(--gold); letter-spacing: .2em; text-transform: uppercase;
+    margin-bottom: .75rem;
+  }
+  .section-tag::before { content: '// '; opacity: .5; }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700; margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--muted); max-width: 600px; margin-bottom: 3.5rem; }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* ── PERFIL / ABOUT ── */
+  #perfil { background: var(--bg2); }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--text); margin-bottom: 1rem; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  .highlight-box p { font-style: italic; color: var(--gold-lt); font-family: var(--font-display); font-size: 1.05rem; margin: 0; }
+  .info-list { list-style: none; }
+  .info-list li {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: .85rem 0;
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-key { font-size: .78rem; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; flex-shrink: 0; }
+  .info-val { color: var(--text); font-size: .9rem; text-align: right; }
+  .info-val a { color: var(--gold); text-decoration: none; }
+
+  /* ── TIMELINE / EXPERIENCIA ── */
+  #experiencia { background: var(--bg); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .timeline-item { position: relative; margin-bottom: 3rem; padding-left: 2rem; }
+  .timeline-dot {
+    position: absolute; left: -2.4rem; top: .3rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--bg);
+    box-shadow: 0 0 10px rgba(201,168,76,.5);
+  }
+  .timeline-dot.current {
+    background: var(--gold-lt);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 10px rgba(201,168,76,.5)} 50%{box-shadow:0 0 20px rgba(201,168,76,.8)} }
+  .timeline-period {
+    font-family: var(--font-mono); font-size: .7rem;
+    color: var(--gold); letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: .4rem;
+  }
+  .timeline-company {
+    font-size: 1.15rem; font-weight: 600; color: var(--text); margin-bottom: .15rem;
+  }
+  .timeline-role { font-size: .85rem; color: var(--muted); margin-bottom: 1rem; }
+  .timeline-highlights { list-style: none; }
+  .timeline-highlights li {
+    padding: .4rem 0 .4rem 1.2rem;
+    position: relative; font-size: .9rem; color: var(--muted);
+    border-bottom: 1px solid rgba(255,255,255,.04);
+  }
+  .timeline-highlights li:last-child { border-bottom: none; }
+  .timeline-highlights li::before {
+    content: '▸'; position: absolute; left: 0; color: var(--gold); font-size: .7rem; top: .55rem;
+  }
+  .timeline-highlights li strong { color: var(--gold-lt); font-weight: 500; }
+
+  /* ── COMPETENCIAS ── */
+  #competencias { background: var(--bg2); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    transition: border-color .3s;
+  }
+  .skill-group:hover { border-color: rgba(201,168,76,.4); }
+  .skill-group-title {
+    font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--gold); font-family: var(--font-mono); margin-bottom: 1.2rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .tag {
+    padding: .3rem .7rem; background: rgba(201,168,76,.08);
+    border: 1px solid rgba(201,168,76,.15); color: var(--text);
+    font-size: .78rem; border-radius: 2px; transition: all .2s;
+  }
+  .tag:hover { background: rgba(201,168,76,.15); border-color: var(--gold); }
+  .tag.tech { border-color: rgba(74,158,255,.2); background: rgba(74,158,255,.07); }
+  .tag.tech:hover { border-color: var(--accent); }
+  .bar-item { margin-bottom: 1rem; }
+  .bar-label { display: flex; justify-content: space-between; font-size: .8rem; margin-bottom: .4rem; color: var(--muted); }
+  .bar-track { background: rgba(255,255,255,.05); height: 3px; border-radius: 2px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold-dk), var(--gold)); border-radius: 2px; }
+
+  /* ── FORMACIÓN ── */
+  #formacion { background: var(--bg); }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .edu-card {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: border-color .3s;
+  }
+  .edu-card:hover { border-color: rgba(201,168,76,.4); }
+  .edu-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: linear-gradient(90deg, var(--gold-dk), var(--gold));
+  }
+  .edu-year { font-family: var(--font-mono); font-size: .7rem; color: var(--gold); letter-spacing: .1em; margin-bottom: .6rem; }
+  .edu-degree { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: .3rem; }
+  .edu-inst { font-size: .85rem; color: var(--muted); margin-bottom: .8rem; }
+  .edu-note { font-size: .8rem; color: var(--gold-lt); }
+
+  /* Certs */
+  .certs-list { display: grid; gap: .75rem; }
+  .cert-item {
+    display: flex; align-items: center; gap: 1rem;
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    transition: border-color .3s;
+  }
+  .cert-item:hover { border-color: rgba(201,168,76,.4); }
+  .cert-icon { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; }
+  .cert-name { font-size: .9rem; flex: 1; }
+  .cert-year { font-family: var(--font-mono); font-size: .75rem; color: var(--muted); flex-shrink: 0; }
+
+  /* ── PROYECTOS ── */
+  #proyectos { background: var(--bg2); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .project-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    padding: 2rem; position: relative; overflow: hidden;
+    transition: all .3s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover { border-color: rgba(201,168,76,.4); transform: translateY(-3px); }
+  .project-category {
+    font-family: var(--font-mono); font-size: .68rem;
+    letter-spacing: .15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: .8rem;
+  }
+  .project-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: .7rem; }
+  .project-desc { font-size: .88rem; color: var(--muted); flex: 1; margin-bottom: 1.5rem; line-height: 1.6; }
+  .project-link {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .8rem; color: var(--gold); text-decoration: none;
+    letter-spacing: .05em; text-transform: uppercase;
+    border-bottom: 1px solid transparent; transition: border-color .2s;
+  }
+  .project-link:hover { border-color: var(--gold); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.2rem; }
+  .ptag {
+    font-size: .7rem; padding: .2rem .55rem;
+    border: 1px solid var(--border); color: var(--muted); border-radius: 2px;
+  }
+
+  /* ── CV DOWNLOAD ── */
+  #cv { background: var(--bg); }
+  .cv-wrapper {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: center;
+  }
+  .cv-preview {
+    border: 1px solid var(--border);
+    background: var(--bg2);
+    padding: 3rem 2.5rem;
+    position: relative;
+  }
+  .cv-preview::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--gold-dk), var(--gold-lt));
+  }
+  .cv-header { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; }
+  .cv-avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-dk), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 1.4rem; font-weight: 700;
+    color: var(--bg); flex-shrink: 0;
+  }
+  .cv-name-block h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; }
+  .cv-name-block p { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+  .cv-sections-preview { list-style: none; }
+  .cv-sections-preview li {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: .6rem 0; border-bottom: 1px solid var(--border);
+    font-size: .85rem;
+  }
+  .cv-sections-preview li:last-child { border-bottom: none; }
+  .cv-sections-preview li span:first-child { color: var(--muted); }
+  .cv-sections-preview li span:last-child { color: var(--gold); font-family: var(--font-mono); font-size: .75rem; }
+  .cv-actions { display: flex; flex-direction: column; gap: 1rem; }
+  .cv-actions .section-tag { margin-bottom: .5rem; }
+  .cv-actions .section-title { font-size: 2rem; margin-bottom: .75rem; }
+  .cv-actions p { color: var(--muted); margin-bottom: 2rem; font-size: .95rem; }
+  .btn-lg { padding: 1rem 2rem; font-size: .9rem; }
+
+  /* ── ANÁLISIS ── */
+  #analisis { background: var(--bg2); }
+  .analysis-intro { color: var(--muted); max-width: 650px; margin-bottom: 3rem; }
+  .analysis-tabs { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 1px solid var(--border); }
+  .tab-btn {
+    padding: .75rem 1.5rem; font-size: .82rem; font-weight: 500;
+    letter-spacing: .05em; text-transform: uppercase;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; border-bottom: 2px solid transparent;
+    transition: all .2s; margin-bottom: -1px;
+  }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .analysis-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .analysis-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    padding: 1.75rem; transition: all .3s;
+  }
+  .analysis-card:hover { border-color: rgba(201,168,76,.35); }
+  .analysis-num {
+    font-family: var(--font-mono); font-size: .7rem;
+    color: var(--gold-dk); margin-bottom: .6rem;
+  }
+  .analysis-title { font-family: var(--font-display); font-size: 1.05rem; margin-bottom: .5rem; }
+  .analysis-desc { font-size: .85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.2rem; }
+  .status-badge {
+    display: inline-block; font-size: .68rem; letter-spacing: .1em;
+    text-transform: uppercase; padding: .25rem .6rem; border-radius: 2px;
+    font-family: var(--font-mono);
+  }
+  .status-live { background: rgba(74,158,255,.12); color: var(--accent); border: 1px solid rgba(74,158,255,.25); }
+  .status-soon { background: rgba(201,168,76,.1); color: var(--gold); border: 1px solid var(--border); }
+  .status-wip  { background: rgba(224,92,92,.1); color: var(--danger); border: 1px solid rgba(224,92,92,.2); }
+
+  /* ── CONTACT ── */
+  #contacto { background: var(--bg); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .contact-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: rgba(201,168,76,.08); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+  .contact-label { font-size: .72rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .25rem; }
+  .contact-val { font-size: .95rem; }
+  .contact-val a { color: var(--gold); text-decoration: none; }
+  .contact-val a:hover { text-decoration: underline; }
+  .contact-form { display: grid; gap: 1rem; }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%; background: var(--surface);
+    border: 1px solid var(--border); color: var(--text);
+    padding: .85rem 1rem; font-family: var(--font-body); font-size: .9rem;
+    outline: none; resize: none; transition: border-color .2s;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--gold); }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: var(--muted); }
+  .contact-note { font-size: .78rem; color: var(--muted); margin-top: .5rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg2); border-top: 1px solid var(--border);
+    padding: 2rem 5rem; display: flex;
+    justify-content: space-between; align-items: center;
+  }
+  .footer-left { font-size: .8rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a { color: var(--muted); font-size: .8rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── FADE IN ── */
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    #inicio { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    section { padding: 4rem 2rem; }
+    .about-grid, .edu-grid, .cv-wrapper, .contact-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body>
 
-    <nav class="bg-slate-900 text-white p-4 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <span class="font-bold text-xl tracking-tight">LRV</span>
-            <div class="space-x-6 text-sm uppercase">
-                <a href="#inicio" class="hover:text-blue-400">Inicio</a>
-                <a href="#logros" class="hover:text-blue-400">Logros</a>
-                <a href="#proyectos" class="hover:text-blue-400">Proyectos</a>
-                <a href="#contacto" class="hover:text-blue-400 border border-blue-400 px-3 py-1 rounded">Contacto</a>
-            </div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">LRV</div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#perfil">Perfil</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#competencias">Competencias</a></li>
+    <li><a href="#analisis">Análisis</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-left fade-in">
+    <div class="hero-badge">Disponible para consultoría</div>
+    <h1 class="hero-name">
+      Luis Miguel<br><span>Rojas Vega</span>
+    </h1>
+    <p class="hero-tagline">Ingeniero Economista con más de <strong>14 años</strong> en el sector financiero peruano. Especialista en Planeamiento Estratégico, Finanzas Corporativas y Ciencia de Datos Aplicada.</p>
+    <div class="hero-cta">
+      <a href="#contacto" class="btn btn-gold">Contactar ahora</a>
+      <a href="#cv" class="btn btn-outline">Descargar CV</a>
+    </div>
+  </div>
+  <div class="hero-stats fade-in">
+    <div class="stat-card">
+      <div class="stat-value">S/ 278M</div>
+      <div class="stat-label">Utilidades récord</div>
+      <div class="stat-sub">CMAC Huancayo, cierre 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">13.5%</div>
+      <div class="stat-label">Ratio Capital Global</div>
+      <div class="stat-sub">Sostenido bajo estándares SBS</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">100+</div>
+      <div class="stat-label">Estudios factibilidad</div>
+      <div class="stat-sub">Expansión geográfica nacional</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">+14</div>
+      <div class="stat-label">Años de experiencia</div>
+      <div class="stat-sub">Finanzas & microfinanzas</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PERFIL -->
+<section id="perfil">
+  <div class="section-tag">Sobre mí</div>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <h2 class="section-title">Perfil Profesional</h2>
+      <p>Ingeniero Economista egresado con distinción de la Universidad Nacional de Ingeniería (UNI) — Segundo Puesto de la Promoción 2010 —, con Maestría en Gestión Pública por la USMP y más de catorce años de trayectoria continua en el sector financiero y de microfinanzas peruano.</p>
+      <p>Me especializo en la intersección entre el análisis econométrico riguroso, la inteligencia de datos y la toma de decisiones estratégicas de alto impacto. Mi metodología integra modelos predictivos, proyecciones macroeconómicas y ciencia de datos para optimizar márgenes y garantizar la solidez institucional bajo entornos regulados.</p>
+      <p>Actualmente participo activamente en la formulación del Plan Estratégico 2024–2028 de CMAC Huancayo, contribuyendo a resultados históricos: utilidades récord de <strong>S/ 278 millones</strong> al cierre de 2025.</p>
+      <div class="highlight-box">
+        <p>"Transformo datos complejos en decisiones de alto impacto que impulsan rentabilidad y eficiencia operativa."</p>
+      </div>
+    </div>
+    <div class="fade-in">
+      <ul class="info-list">
+        <li><span class="info-key">Ubicación</span><span class="info-val">Lima, Perú</span></li>
+        <li><span class="info-key">Email</span><span class="info-val"><a href="mailto:lrojasv@uni.pe">lrojasv@uni.pe</a></span></li>
+        <li><span class="info-key">Teléfono</span><span class="info-val">+51 973 936 750</span></li>
+        <li><span class="info-key">LinkedIn</span><span class="info-val"><a href="https://linkedin.com/in/lrojasv" target="_blank">linkedin.com/in/lrojasv</a></span></li>
+        <li><span class="info-key">Inglés</span><span class="info-val">Nivel Intermedio</span></li>
+        <li><span class="info-key">Disponibilidad</span><span class="info-val">Consultoría / Part-time</span></li>
+        <li><span class="info-key">Sector</span><span class="info-val">Finanzas, Microfinanzas, Data Science</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- EXPERIENCIA -->
+<section id="experiencia">
+  <div class="section-tag">Trayectoria profesional</div>
+  <h2 class="section-title">Experiencia</h2>
+  <p class="section-sub">14 años de carrera en instituciones financieras líderes del Perú, desde el BCRP hasta microfinanzas de alto impacto.</p>
+  <div class="timeline">
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot current"></div>
+      <div class="timeline-period">Mar. 2014 – Actualidad · 11+ años</div>
+      <div class="timeline-company">CMAC Huancayo S.A.</div>
+      <div class="timeline-role">Asistente de Estudios Económicos</div>
+      <ul class="timeline-highlights">
+        <li>Pieza clave en la formulación y seguimiento del <strong>Plan Estratégico 2024–2028</strong>, contribuyendo a utilidades récord de <strong>S/ 278 millones</strong> al cierre de 2025.</li>
+        <li>Responsable del modelo de proyecciones para colocaciones, captaciones y mora, manteniendo el <strong>Ratio de Capital Global (RCG) en 13.5%</strong> bajo estándares SBS.</li>
+        <li>Ejecución de más de <strong>100 estudios de costo-beneficio y factibilidad</strong> para apertura de agencias a nivel nacional, con análisis socioeconómico georreferenciado.</li>
+        <li>Integración de variables macroeconómicas en modelos internos para anticipar escenarios de riesgo crediticio.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Nov. 2012 – Ene. 2014 · 1 año 2 meses</div>
+      <div class="timeline-company">Caja Rural Raíz</div>
+      <div class="timeline-role">Analista de Marketing</div>
+      <ul class="timeline-highlights">
+        <li>Diseñé la estrategia analítica que revirtió una caída del <strong>-1.27%</strong> en cartera crediticia, logrando un crecimiento anual de <strong>8.13% (S/ 37 millones)</strong> en el último trimestre de 2013.</li>
+        <li>Implementé modelos de segmentación de clientes y campañas de fidelización que redujeron la deserción de clientes de alto valor.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">May. 2012 – Nov. 2012 · 6 meses</div>
+      <div class="timeline-company">Transportes Cruz del Sur S.A.C.</div>
+      <div class="timeline-role">Analista de Finanzas</div>
+      <ul class="timeline-highlights">
+        <li>Gestión del flujo de caja diario y mensual, asegurando el cumplimiento de obligaciones financieras y pagos a proveedores.</li>
+        <li>Implementación de indicadores de gestión que mejoraron el control de fondos fijos y gastos administrativos.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Abr. 2011 – Dic. 2011 · 9 meses</div>
+      <div class="timeline-company">La Viga S.A.</div>
+      <div class="timeline-role">Asistente de Finanzas y Tesorería</div>
+      <ul class="timeline-highlights">
+        <li>Administración y optimización del descuento de letras de cambio, reduciendo el riesgo de incobrabilidad mediante proyecciones de flujo operativo.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Jul. 2010 – Dic. 2010 · 6 meses</div>
+      <div class="timeline-company">Banco Central de Reserva del Perú (BCRP)</div>
+      <div class="timeline-role">Practicante — Estadísticas Monetarias</div>
+      <ul class="timeline-highlights">
+        <li>Seguimiento y reporte de variables bursátiles globales (Forex, commodities, índices) para informes técnicos a la alta gerencia sobre impacto en el mercado de valores local.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- COMPETENCIAS -->
+<section id="competencias">
+  <div class="section-tag">Skills & Tools</div>
+  <h2 class="section-title">Competencias</h2>
+  <p class="section-sub">Combinación de habilidades analíticas, técnicas y directivas para gestión estratégica en entornos financieros regulados.</p>
+  <div class="skills-grid">
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Estrategia & Finanzas</div>
+      <div class="skill-tags">
+        <span class="tag">Planeamiento Estratégico</span>
+        <span class="tag">Balanced Scorecard</span>
+        <span class="tag">Finanzas Corporativas</span>
+        <span class="tag">Evaluación de Proyectos</span>
+        <span class="tag">Análisis de Riesgo</span>
+        <span class="tag">Gestión de Liquidez</span>
+        <span class="tag">Expansión Geográfica</span>
+        <span class="tag">Mercado de Valores</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Software Técnico</div>
+      <div class="bar-item">
+        <div class="bar-label"><span>Power BI</span><span>Intermedio-Avanzado</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label"><span>SQL Server</span><span>Intermedio</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label"><span>Python</span><span>Funcional</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label"><span>EViews</span><span>Avanzado</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label"><span>RStudio</span><span>Funcional</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label"><span>SAP FI</span><span>Key User</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Data & Analytics</div>
+      <div class="skill-tags">
+        <span class="tag tech">Pricing Analytics</span>
+        <span class="tag tech">Econometría Aplicada</span>
+        <span class="tag tech">Forecasting</span>
+        <span class="tag tech">Análisis Predictivo</span>
+        <span class="tag tech">Machine Learning</span>
+        <span class="tag tech">Data Storytelling</span>
+        <span class="tag tech">Segmentación</span>
+        <span class="tag tech">Series de Tiempo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- FORMACIÓN -->
+<section id="formacion">
+  <div class="section-tag">Educación & Certificaciones</div>
+  <h2 class="section-title">Formación Académica</h2>
+  <p class="section-sub">Sólida base académica complementada con formación continua en finanzas digitales y ciencia de datos.</p>
+  <div class="edu-grid" style="margin-bottom: 3rem;">
+    <div class="edu-card fade-in">
+      <div class="edu-year">2005 – 2010</div>
+      <div class="edu-degree">Ingeniería Económica</div>
+      <div class="edu-inst">Universidad Nacional de Ingeniería (UNI) · Titulado</div>
+      <div class="edu-note">🏅 Segundo Puesto de la Promoción 2010</div>
+    </div>
+    <div class="edu-card fade-in">
+      <div class="edu-year">2019 – 2020</div>
+      <div class="edu-degree">Maestría en Gestión Pública</div>
+      <div class="edu-inst">Universidad San Martín de Porres (USMP) · Egresado</div>
+      <div class="edu-note">Especialización en políticas económicas y regulación financiera</div>
+    </div>
+  </div>
+  <div class="section-tag">Especializaciones recientes</div>
+  <div class="certs-list fade-in">
+    <div class="cert-item">
+      <div class="cert-icon">◆</div>
+      <div class="cert-name">Especialización Internacional en Pricing Analytics · GEM Educa</div>
+      <div class="cert-year">Oct. 2025</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">◆</div>
+      <div class="cert-name">IA, Data Science y Deep Learning para Economistas · Escuela Global</div>
+      <div class="cert-year">2025</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">◆</div>
+      <div class="cert-name">Análisis Predictivo, Pronósticos y Forecasting para Finanzas · Escuela Global</div>
+      <div class="cert-year">Jun. 2025</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">◆</div>
+      <div class="cert-name">Diplomado en Gestión de Finanzas Corporativas · UNMSM</div>
+      <div class="cert-year">Mar. 2025</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">◆</div>
+      <div class="cert-name">SAP FI (Finanzas y Contabilidad) — Key User · Global Tecnologías</div>
+      <div class="cert-year">Oct. 2024</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">◆</div>
+      <div class="cert-name">Diplomado en Análisis de Datos con Power BI · Escuela Nacional de Políticas Públicas</div>
+      <div class="cert-year">Ene. 2024</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">◆</div>
+      <div class="cert-name">XIII Curso de Especialización en Mercado de Valores · SMV – ESAN</div>
+      <div class="cert-year">2012</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ANÁLISIS -->
+<section id="analisis">
+  <div class="section-tag">Investigación aplicada</div>
+  <h2 class="section-title">Centro de Análisis</h2>
+  <p class="analysis-intro">Publicaciones, dashboards e informes de análisis económico-financiero desarrollados de forma independiente. Este espacio crecerá con nuevas investigaciones.</p>
+
+  <div class="analysis-tabs">
+    <button class="tab-btn active" onclick="switchTab('finanzas')">Finanzas & Macro</button>
+    <button class="tab-btn" onclick="switchTab('datos')">Data & Visualización</button>
+    <button class="tab-btn" onclick="switchTab('politica')">Política Pública</button>
+    <button class="tab-btn" onclick="switchTab('cultura')">Literatura & Cultura</button>
+  </div>
+
+  <div id="tab-finanzas" class="tab-content active">
+    <div class="analysis-cards">
+      <div class="analysis-card">
+        <div class="analysis-num">FIN-001</div>
+        <div class="analysis-title">Presupuesto del Congreso Bicameral 2026</div>
+        <div class="analysis-desc">Análisis visual del presupuesto institucional del nuevo Congreso Bicameral de Perú. Infografía detallada publicada en LinkedIn.</div>
+        <div class="tag-row"><span class="ptag">Presupuesto</span><span class="ptag">Congreso</span><span class="ptag">2026</span></div>
+        <a href="https://www.linkedin.com/posts/lrojasv_cuanto-vale-tu-voto-activity-7440720603357052928-E-Qb" target="_blank" class="project-link">Ver análisis →</a>
+        &nbsp;&nbsp;<span class="status-badge status-live">Publicado</span>
+      </div>
+      <div class="analysis-card">
+        <div class="analysis-num">FIN-002</div>
+        <div class="analysis-title">Proyección de Mora y RCG — Microfinanzas</div>
+        <div class="analysis-desc">Modelo econométrico interno para la proyección del ratio de mora y Capital Global en entidades de microfinanzas. Basado en variables PBI, inflación y empleo.</div>
+        <div class="tag-row"><span class="ptag">Econometría</span><span class="ptag">Microfinanzas</span><span class="ptag">SBS</span></div>
+        <span class="status-badge status-soon">Próximamente</span>
+      </div>
+      <div class="analysis-card">
+        <div class="analysis-num">FIN-003</div>
+        <div class="analysis-title">Análisis de Rentabilidad Sector Cajas Municipales</div>
+        <div class="analysis-desc">Comparativo de indicadores ROE, ROA y eficiencia operativa en el sistema de Cajas Municipales del Perú. Periodo 2019–2024.</div>
+        <div class="tag-row"><span class="ptag">CMAC</span><span class="ptag">ROE</span><span class="ptag">Benchmarking</span></div>
+        <span class="status-badge status-wip">En desarrollo</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-datos" class="tab-content">
+    <div class="analysis-cards">
+      <div class="analysis-card">
+        <div class="analysis-num">DAT-001</div>
+        <div class="analysis-title">Dashboard de Indicadores Macroeconómicos Perú</div>
+        <div class="analysis-desc">Visualización interactiva en Power BI de las principales variables macroeconómicas: PBI, inflación, tipo de cambio y reservas internacionales.</div>
+        <div class="tag-row"><span class="ptag">Power BI</span><span class="ptag">BCRP</span><span class="ptag">Macro</span></div>
+        <span class="status-badge status-soon">Próximamente</span>
+      </div>
+      <div class="analysis-card">
+        <div class="analysis-num">DAT-002</div>
+        <div class="analysis-title">Mapa de Densidad Crediticia por Departamento</div>
+        <div class="analysis-desc">Análisis georreferenciado de penetración financiera y cartera crediticia por regiones del Perú, con índices de bancarización.</div>
+        <div class="tag-row"><span class="ptag">GIS</span><span class="ptag">SBS</span><span class="ptag">Python</span></div>
+        <span class="status-badge status-wip">En desarrollo</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-politica" class="tab-content">
+    <div class="analysis-cards">
+      <div class="analysis-card">
+        <div class="analysis-num">POL-001</div>
+        <div class="analysis-title">Evaluación del Impacto Fiscal del Bicameralismo</div>
+        <div class="analysis-desc">Análisis del costo-beneficio de la restitución del Senado en el Perú, considerando gasto presupuestario vs. mejoras en calidad legislativa.</div>
+        <div class="tag-row"><span class="ptag">Política Fiscal</span><span class="ptag">Congreso</span><span class="ptag">Gestión Pública</span></div>
+        <span class="status-badge status-soon">Próximamente</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-cultura" class="tab-content">
+    <div class="analysis-cards">
+      <div class="analysis-card">
+        <div class="analysis-num">LIT-001</div>
+        <div class="analysis-title">La sangre del sol y la luna</div>
+        <div class="analysis-desc">Novela histórica sobre la cosmogonía Moche — la dualidad entre el poder solar de los señores y la fuerza lunar de las sacerdotisas en el antiguo norte peruano. Lanzamiento Marzo 2026.</div>
+        <div class="tag-row"><span class="ptag">Novela</span><span class="ptag">Historia</span><span class="ptag">Cultura Moche</span></div>
+        <a href="https://www.amazon.es/dp/B0GQ6JZS4V" target="_blank" class="project-link">Ver en Amazon →</a>
+        &nbsp;&nbsp;<span class="status-badge status-live">Disponible</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="section-tag">Portfolio</div>
+  <h2 class="section-title">Proyectos Destacados</h2>
+  <p class="section-sub">Iniciativas de alto impacto en las que participé como analista líder o asesor estratégico.</p>
+  <div class="projects-grid">
+    <div class="project-card fade-in">
+      <div class="project-category">Planeamiento Estratégico</div>
+      <div class="project-title">Plan Estratégico CMAC Huancayo 2024–2028</div>
+      <div class="project-desc">Participación en la formulación, modelamiento y seguimiento del Plan Estratégico institucional, logrando alineamiento de metas y utilidades récord de S/ 278M en 2025.</div>
+      <div class="tag-row"><span class="ptag">BSC</span><span class="ptag">KPIs</span><span class="ptag">Proyecciones</span><span class="ptag">SBS</span></div>
+      <span class="status-badge status-live">Vigente</span>
+    </div>
+    <div class="project-card fade-in">
+      <div class="project-category">Expansión Geográfica</div>
+      <div class="project-title">Modelo de Localización de Agencias</div>
+      <div class="project-desc">100+ estudios de costo-beneficio y factibilidad para nuevas agencias a nivel nacional, con análisis de variables socioeconómicas, densidad poblacional y competencia del mercado.</div>
+      <div class="tag-row"><span class="ptag">GIS</span><span class="ptag">Costo-Beneficio</span><span class="ptag">Demanda</span></div>
+      <span class="status-badge status-live">Vigente</span>
+    </div>
+    <div class="project-card fade-in">
+      <div class="project-category">Marketing Analítico</div>
+      <div class="project-title">Recuperación de Cartera — Caja Raíz 2013</div>
+      <div class="project-desc">Estrategia analítica que revirtió una caída de -1.27% en créditos, generando un crecimiento de 8.13% (S/ 37M) mediante segmentación avanzada y campañas de retención.</div>
+      <div class="tag-row"><span class="ptag">Segmentación</span><span class="ptag">CRM</span><span class="ptag">Retención</span></div>
+      <span class="status-badge status-live">Completado</span>
+    </div>
+    <div class="project-card fade-in">
+      <div class="project-category">Literatura</div>
+      <div class="project-title">Publicación Amazon KDP</div>
+      <div class="project-desc">Autor de "La sangre del sol y la luna", novela histórica sobre la civilización Moche. Disponible en formato digital en Amazon Kindle Direct Publishing.</div>
+      <div class="tag-row"><span class="ptag">Escritura</span><span class="ptag">Historia</span><span class="ptag">Amazon KDP</span></div>
+      <a href="https://www.amazon.es/dp/B0GQ6JZS4V" target="_blank" class="project-link">Ver en Amazon →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CV DOWNLOAD -->
+<section id="cv">
+  <div class="cv-wrapper">
+    <div class="cv-preview fade-in">
+      <div class="cv-header">
+        <div class="cv-avatar">LR</div>
+        <div class="cv-name-block">
+          <h3>Luis Miguel Rojas Vega</h3>
+          <p>Ingeniero Economista | Estratega de Datos</p>
         </div>
-    </nav>
+      </div>
+      <ul class="cv-sections-preview">
+        <li><span>Experiencia profesional</span><span>14+ años</span></li>
+        <li><span>Empresas</span><span>5 organizaciones</span></li>
+        <li><span>Certificaciones</span><span>7 especializaciones</span></li>
+        <li><span>Software técnico</span><span>SQL · Python · Power BI · EViews</span></li>
+        <li><span>Logro principal</span><span>S/ 278M utilidades 2025</span></li>
+        <li><span>Idiomas</span><span>Español (nativo) · Inglés (intermedio)</span></li>
+      </ul>
+    </div>
+    <div class="cv-actions fade-in">
+      <div class="section-tag">Curriculum Vitae</div>
+      <h2 class="section-title">Descarga mi CV</h2>
+      <p>Documento actualizado con toda mi trayectoria profesional, logros cuantificables, formación académica y competencias técnicas. Formato PDF listo para compartir con reclutadores o clientes.</p>
+      <a href="CV_Rojas_Luis.pdf" download class="btn btn-gold btn-lg">⬇ Descargar CV (PDF)</a>
+      <br/><br/>
+      <a href="mailto:lrojasv@uni.pe" class="btn btn-outline">Solicitar versión actualizada</a>
+      <p class="contact-note" style="margin-top:1.5rem">* Coloca el archivo PDF de tu CV junto a este index.html para activar la descarga.</p>
+    </div>
+  </div>
+</section>
 
-    <section id="inicio" class="bg-slate-900 text-white py-24 px-6 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">Luis Miguel Rojas Vega</h1>
-        <p class="text-xl md:text-2xl text-slate-400 mb-8 max-w-3xl mx-auto">
-            Ingeniero Economista & Estratega de Datos. Especialista en Planeamiento Financiero.
-        </p>
-        <a href="mailto:lrojasv@uni.pe" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition">
-            Contactar ahora
-        </a>
-    </section>
+<hr class="divider"/>
 
-    <section class="py-16 container mx-auto px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Visión Estratégica</h2>
-            <p class="text-lg text-slate-600 leading-relaxed">
-                Con más de 12 años en el sector financiero, integro economía con ciencia de datos avanzada. 
-                Mi enfoque es la optimización de rentabilidad institucional mediante modelos predictivos y una gestión rigurosa del capital.
-            </p>
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-tag">Hablemos</div>
+  <h2 class="section-title">Contacto</h2>
+  <div class="contact-grid">
+    <div class="fade-in">
+      <p style="color:var(--muted); margin-bottom:2rem;">Disponible para proyectos de consultoría en planeamiento financiero, análisis de datos, evaluación de inversiones y estrategia institucional.</p>
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val"><a href="mailto:lrojasv@uni.pe">lrojasv@uni.pe</a></div>
         </div>
-    </section>
-
-    <section id="logros" class="bg-white py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Logros de Impacto</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-8 border rounded-xl hover:shadow-lg transition bg-slate-50">
-                    <h3 class="text-4xl font-bold text-blue-600 mb-2">13.5%</h3>
-                    <p class="font-semibold text-slate-800">Ratio de Capital Global</p>
-                    <p class="text-sm text-slate-600">Con gestión de solvencia institucional bajo estándares regulatorios SBS.</p>
-                </div>
-                <div class="p-8 border rounded-xl hover:shadow-lg transition bg-slate-50">
-                    <h3 class="text-4xl font-bold text-blue-600 mb-2">S/ 37M</h3>
-                    <p class="font-semibold text-slate-800">Crecimiento de Cartera (2013)</p>
-                    <p class="text-sm text-slate-600">Incremento logrado mediante marketing analítico y segmentación avanzada (Caja Raiz).</p>
-                </div>
-                <div class="p-8 border rounded-xl hover:shadow-lg transition bg-slate-50">
-                    <h3 class="text-4xl font-bold text-blue-600 mb-2">100+</h3>
-                    <p class="font-semibold text-slate-800">Estudios de Expansión</p>
-                    <p class="text-sm text-slate-600">Proyectos de factibilidad y localización exitosos a nivel nacional.</p>
-                </div>
-            </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">☎</div>
+        <div>
+          <div class="contact-label">Teléfono</div>
+          <div class="contact-val">+51 973 936 750</div>
         </div>
-    </section>
-
-  <section id="proyectos" class="py-16 container mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold mb-12">Investigación & Proyectos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto text-left">
-            
-            <div>
-                <h3 class="text-xl font-bold text-slate-800 mb-4 border-l-4 border-blue-600 pl-4">Finanzas & IA</h3>
-                <ul class="space-y-4">
-                    </li>
-                    <li class="bg-white p-5 rounded shadow-sm border border-slate-100">
-                        <div class="flex flex-col h-full justify-between">
-                            <div>
-                                <strong class="block text-slate-900">Infografía Presupuestal 2026</strong>
-                                <p class="text-sm text-slate-600 mt-1 mb-4">Análisis visual detallado del presupuesto del Congreso Bicameral de Perú.</p>
-                            </div>
-                            <a href="https://www.linkedin.com/posts/lrojasv_cuanto-vale-tu-voto-activity-7440720603357052928-E-Qb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAKqsqABL52pdJ5mL9z5wZeoUYw3zAGOWl4" target="_blank" class="text-blue-600 text-xs font-bold uppercase tracking-wider hover:text-blue-800 flex items-center">
-                                Ver Infografía 
-                                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="text-xl font-bold text-slate-800 mb-4 border-l-4 border-blue-600 pl-4">Literatura & Cultura</h3>
-                <ul class="space-y-4">
-                    <li class="bg-white p-5 rounded shadow-sm border border-slate-100">
-                        <div class="flex flex-col h-full justify-between">
-                            <div>
-                                <strong class="block text-slate-900">"La sangre del sol y la luna"</strong>
-                                <p class="text-sm text-slate-600 mt-1 mb-4">Novela histórica sobre la cosmogonía Moche (Lanzamiento Marzo 2026).</p>
-                            </div>
-                            <a href="https://www.amazon.es/dp/B0GQ6JZS4V" target="_blank" class="text-blue-600 text-xs font-bold uppercase tracking-wider hover:text-blue-800 flex items-center">
-                                Ver en Amazon KDP 
-                                <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">in</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-val"><a href="https://linkedin.com/in/lrojasv" target="_blank">linkedin.com/in/lrojasv</a></div>
         </div>
-    </section>
-
-    <footer id="contacto" class="bg-slate-900 text-white py-12 text-center">
-        <p class="mb-4 text-slate-400 underline decoration-blue-600 underline-offset-4">lrojasv@uni.pe</p>
-        <div class="flex justify-center space-x-6 mb-8">
-            <a href="https://linkedin.com/in/lrojasv" class="hover:text-blue-400">LinkedIn</a>
-            <a href="https://www.amazon.com/author/luisrojas" class="hover:text-blue-400">Publicaciones</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📚</div>
+        <div>
+          <div class="contact-label">Amazon Author</div>
+          <div class="contact-val"><a href="https://www.amazon.com/author/luisrojas" target="_blank">amazon.com/author/luisrojas</a></div>
         </div>
-        <p class="text-xs text-slate-500 uppercase tracking-widest">&copy; 2026 Luis Miguel Rojas Vega</p>
-    </footer>
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="contact-form">
+        <input type="text" placeholder="Tu nombre completo"/>
+        <input type="email" placeholder="Tu correo electrónico"/>
+        <input type="text" placeholder="Asunto del mensaje"/>
+        <textarea rows="5" placeholder="Cuéntame sobre tu proyecto o consulta..."></textarea>
+        <a href="mailto:lrojasv@uni.pe" class="btn btn-gold" style="justify-content:center">Enviar por correo →</a>
+        <p class="contact-note">El formulario abre tu cliente de correo. También puedes escribirme directamente a lrojasv@uni.pe</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">© 2026 Luis Miguel Rojas Vega · Lima, Perú · UNI Promoción 2010</div>
+  <ul class="footer-links">
+    <li><a href="https://linkedin.com/in/lrojasv" target="_blank">LinkedIn</a></li>
+    <li><a href="https://www.amazon.com/author/luisrojas" target="_blank">Amazon</a></li>
+    <li><a href="mailto:lrojasv@uni.pe">Email</a></li>
+  </ul>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+
+  // Tabs
+  function switchTab(id) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Animate bars on visible
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar-fill').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0';
+          setTimeout(() => { bar.style.transition = 'width 1s ease'; bar.style.width = w; }, 100);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.skill-group').forEach(g => barObserver.observe(g));
+</script>
 </body>
 </html>
